@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+          crossorigin="anonymous">
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.0.0/dist/bootstrap-validate.js" integrity="sha384-YmuBsjGRLbP6xIXehXIvB6ftbTViDPXx/goUnD/B7EZ8qDE5JVVuBN+Zws8lzmh7"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Functions/user.js"></script>
+    <script src="Functions/JavaScript.js"></script>
+    <link rel="stylesheet" href="Css/Otto.css" />
+    <title>Otto Automations | Breathing life into your machines</title>
+</head>
+
+<body id="logIn">
+  <nav class="navbar navbar-expand-sm  navbar-dark">
+    <a class="navbar-brand" href="#"><img src="img/logo.png" id="logo" /></a>
+    <h1> OTTO </h1>
+    <ul class="navbar-nav" style="margin-left:auto">
+      <li class="nav-item" style="padding:0;border-left:0">
+        <a class="nav-link" href="Otto.html"><i class="fa fa-home" style="font-size:36px"></i></a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" href="register.html">Sign Up</a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="productMgmt.html">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="ShoppingCart.html">Cart</a>
+      </li>-->
+      <li class="nav-item" style="padding:0">
+        <a class="nav-link" href="http://www.google.com"><i class="fa fa-google" style="font-size:36px"></i></a>
+      </li>
+      <li class="nav-item" style="padding:0">
+        <a class="nav-link" href="http://www.twitter.com"><i class="fa fa-twitter" style="font-size:36px"></i></a>
+      </li>
+      <li class="nav-item" style="padding:0">
+        <a class="nav-link" href="http://www.facebook.com"><i class="fa fa-facebook-square" style="font-size:36px"></i></a>
+      </li>
+    </ul>
+  </nav>
+    <div id="login" class="login" style="text-align: center;">
+      <h7 style="color:white;font-size:50px;font-family: 'Bungee Shade', cursive;">Sign In</h7>
+        <br />
+        <br />
+        <br />
+        <br />
+            <input id="txtUsername" type="text" placeholder="Enter Username" autofocus/>
+            <br>
+            <input id="txtPassword" type="password" required placeholder="Enter password">
+            <br>
+
+            <input class="button" id="btnLogin" type="button" value="Login" onclick="clickCounter()" /> &nbsp;
+            <!-- <input class="button" type='button' onclick='location.reload();' value='Reset' /> -->
+            <br />
+            <button class="button" id="btnForgotPwd" onclick="forgotPassword()">Forgot Password</button>
+            <br />
+            <br />
+            <!-- <a href="register.html" style="color:whitesmoke">Sign Up</a> -->
+            <!--<input class="button" id="Button1" type="button" value="Sign up" onclick="window.location.href=http://localhost:52488/RegistrationPage.html"/>-->
+            <br />
+
+
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content" style="height:500px">
+                  <span class="close" style="background-color:red"><p>BACK</p></span>
+                    <p>
+                        <br />
+                        <br />
+
+
+                        <b style="color:crimson; font-size:x-large;">Forgot Password!!!</b>
+                        <br />
+                        <br />
+                        Please select a question to answer to reset the password!
+                        <br />
+                        <br />
+                        <select id="questionList">
+                            <option value="Q1">What's your Mother's maiden name?</option>
+                            <option value="Q2">Where were you last work?</option>
+                            <option value="Q3">Who's your favorite teacher?</option>
+                        </select>
+
+                        <br />
+                        <br />
+                        Type your answer here:<br>
+                        <input id="passwordAnswer" type="text" style="border:1px solid black;color:black"/>
+                        <br />
+                        <br />
+                        <input id="resetBtn" type="button" value="Reset Password" onclick="resetPassword()" />
+
+                        <div id="msg" style="color:blue;"></div>
+                    </p>
+                </div>
+            </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <section id="warningMsg" style="text-align:center; color:red;"></section>
+
+</body>
+
+</html>

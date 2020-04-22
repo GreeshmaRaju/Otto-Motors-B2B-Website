@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Products</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Js/sample.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <!--Navigation bar-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Otto Automotors</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">User Management</a></li>
+                <li><a href="#">Company Management</a></li>
+                <li class="active"><a href="#">Product Management</a></li>
+            </ul>
+            <div class="row search">
+                <div class="col-xs-8 col-sm-8 col-lg-8"></div>
+                <div class="col-xs-3 col-sm-3 col-lg-3"><input type="text" id="searchButton" class="form-control" placeholder="Search" name="search"></div>
+                <div class="col-xs-1 col-sm-1 col-lg-1"><button type="submit" class="btn btn-default" onclick="searchProduct()">Search</button></div>
+            </div>
+        </div>
+    </nav>
+    <!--Product table and Cart table-->
+    <div class="main">
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading table-head">
+                    <p class="prod">Product List</p>
+                    <input type='button' value='Add Products' id='button' class='btn addprod' data-toggle='modal' data-target='#Addmodal' />
+                </div>
+                <div class="panel-body  scrollable-panel">
+                    <div class="table-responsive-md resp">
+                        <table id="table" class="table table-striped">
+                            <div id="productList"></div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading table-head">
+                    <p class="prod">Product Cart</p>
+                </div>
+                <div class="panel-body scrollable-panel">
+                    <div id="emptycart" class="well emptycart">Cart is Empty</div>
+                    <div id="maincart" class="table-responsive-md">
+                        <table id="table" class="table table-striped">
+                            <div class="row">
+                                <div class="col-xs-10 col-sm-10 col-lg-10">
+                                    <div id="productcartList" class="resp"></div>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-lg-2">
+                                    <button type="button" style="font-size:28px" class="btn" onclick="buy()">Buy Now!</button>
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Add Product to table-->
+
+    <div id="Addmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="modalclose" type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><h4>Add Product Details</h4></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger fade" aria-hidden="true" id="alert-input">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>Please fill all the input fields</strong>
+                    </div>
+                    <div class="form-group">
+                        <label for="productName">Name</label>
+                        <input type="text" class="form-control inputbuttons" id="productName">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control inputbuttons" id="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="inventory">Inventory</label>
+                        <input type="text" class="form-control inputbuttons" id="inventory">
+                    </div>
+                    <div class="form-group">
+                        <form name="supplierName">
+
+                            <label for="Supplier"> Supplier: </label>
+                            <br />
+                            <select name="jumpmenu" id="supplier" onchange="jumpTo(document.supplierName.jumpmenu.options[document.supplierName.jumpmenu.options.selectedIndex].value)">
+                                <option value="Caterpillar">Caterpillar</option>
+                                <option value="Michellin">Michellin</option>
+                                <option value="Americal Locomotive">American Locomotive</option>
+                            </select>
+                        </form>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label for="role">Description:</label>
+                        <input type="text" class="form-control inputbuttons" id="role">
+                    </div>
+                    <input id="updateBtn" type="button" value="Add to Product list" onclick="productInput()" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--edit Function-->
+    <div class="form-group">
+        <div class="modal" id="popEdit">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><h4>Edit Product Details</h4></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="productName"> Product Name: </label>
+                            <br />
+                            <input id="productName1" type="text" class="inputbuttons" />
+                        </div>&nbsp;
+                        <div class="form-group">
+                            <label for="Price"> Price: </label>
+                            <br />
+                            <input id="price1" type="text" class="inputbuttons" />
+                        </div>&nbsp;&nbsp;
+                        <div class="form-group">
+                            <label for="Inventory"> Inventory: </label>
+                            <br />
+                            <input id="inventory1" type="text" class="inputbuttons" />
+                        </div>&nbsp;
+                        <div class="form-group">
+                            <form name="supplierName">
+
+                                <label for="Supplier"> Supplier: </label>
+                                <br />
+                                <select name="jumpmenu" id="supplier1" onchange="jumpTo(document.supplierName.jumpmenu.options[document.supplierName.jumpmenu.options.selectedIndex].value)">
+                                    <option value="Caterpillar">Caterpillar</option>
+                                    <option value="Michellin">Michellin</option>
+                                    <option value="Americal Locomotive">American Locomotive</option>
+                                </select>
+                            </form>
+                        </div>&nbsp;
+                        <div class="form-group">
+                            <label for="Role"> Description:  </label>
+                            <br />
+                            <input id="role1" type="text" class="inputbuttons" />
+                        </div>&nbsp;
+                        <table>
+                            <td><input id="updateBtn" type="button" value="Update" onclick="editProductTableSelectedRow()" class="btn btn-primary" /></td>&nbsp; &nbsp;
+                            <td><input id="cancelBtn" type="button" value="Cancel" onclick="closePopupedit()" class="btn btn-primary" /></td>
+                        </table>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!--Delete product from table-->
+    <div id="deleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="modalclose" type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><h4>Are you sure you want to Delete?</h4></h4>
+                </div>
+                <div class="modal-body">
+                    <input class="btn" type="button" value="Yes" onclick=" deleteProductyes()" />
+                    <button id="dontdelete" type="button" class="btn" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

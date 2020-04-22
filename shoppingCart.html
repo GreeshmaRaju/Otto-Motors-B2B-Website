@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="Css/shopping cart/font-awesome.css" rel="stylesheet">
+    <link href="Css/shopping cart/bootstrap.min.css" rel="stylesheet">
+    <link href="Css/shopping cart/animate.min.css" rel="stylesheet">
+    <link href="Css/shopping cart/owl.theme.css" rel="stylesheet">
+    <link href="Css/shopping cart/shoppingCart.css" rel="stylesheet">
+
+
+    <!-- theme stylesheet -->
+    <link href="Css/shopping cart/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <script src="Functions/respond.min.js"></script>
+
+    <title>Otto Automations | Breathing life into your machines</title>
+
+</head>
+
+<body background="img/benz.jpg">
+
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake"></a>  <a href="#"></a>
+            </div>
+			<div class="col-md-6" data-animate="fadeInDown">
+                <ul class="menu">
+					<li><a href="Otto.html"> Welcome! <span id="user"></span></a></li>
+                    <li><a href="Logout.html" id="logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+				</ul>
+			</div>
+        </div>
+    </div>
+
+   
+
+    <div class="navbar navbar-default yamm" role="navigation" id="navba r">
+        <div class="container">
+            <div class="navbar-header">
+				<a href="Otto.html">
+                    <img src="img/Logo.png" alt="logo" class="hidden-xs" width="150pt">
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-align-justify"></i>
+                    </button>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+    </nav>
+            <!--/.navbar-header -->
+			<div class="navbar-collapse collapse" id="navigation">
+				<ul class="nav navbar-nav navbar-left">
+					
+				</ul>
+			</div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-buttons">
+                <!--/.nav-collapse -->
+
+                <div class="navbar-collapse collapse right" id="search-not-mobile">
+                    <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                        <span class="sr-only">Toggle search</span>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="collapse clearfix" id="search">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+						</span>
+                    </div>
+                </form>
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /#navbar -->
+
+    <!-- *** NAVBAR END *** -->
+	
+	<div class="container">
+		<div class="col-md-9" id="basket">
+			<div class="box">
+				<form method="get" action="PoPage.html">
+					<h1>Shopping cart</h1>
+					<p class="text-muted">You currently have following item(s) in your cart.</p>
+					<div class="table-responsive" id="newCart">
+
+					</div>
+					<!-- /.table-responsive -->
+
+					<div class="box-footer">
+						<div class="pull-left">
+							<a href="productmgmt.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+						</div>
+						<div class="pull-right">
+							<button type="button" class="btn btn-default" id="updateCartButton" onclick="upDate()"><i class="fa fa-refresh"></i> Update cart</button>
+							<button class="btn btn-primary" onclick="">Proceed to checkout <i class="fa fa-chevron-right"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+
+			</div>
+			<!-- /.box -->
+			<div class="row same-height-row">
+				<div class="col-md-3 col-sm-6">
+				</div>
+				<div class="col-md-3 col-sm-6">
+				</div>
+				<div class="col-md-3 col-sm-6">
+				</div>
+				<div class="col-md-3 col-sm-6">
+				</div>
+			</div>
+		</div>
+		<!-- /.col-md-9 -->
+		
+		<div class="col-md-3">
+			<div class="box" id="order-summary">
+				<div class="box-header">
+					<h3>Order summary</h3>
+				</div>
+				
+				<div class="table-responsive">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td>Order subtotal</td>
+								<th id="subTotal">$0.00</th>
+							</tr>
+							<tr>
+								<td>Shipping and handling</td>
+								<th>$0.00</th>
+							</tr>
+							<tr>
+								<td>Tax</td>
+								<th id="tax">$0.00</th>
+							</tr>
+							<tr class="total">
+								<td>Total</td>
+								<th id="total">$0.00</th>
+							</tr>
+							<tr class="alert alert-warning">
+								<td colspan="2">Note: Shopping cart items will no longer be available once you log out, Please check out all items before logging out!</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- /.col-md-3 -->
+	</div>
+	
+	<!-- *** FOOTER ***
+ _________________________________________________________ -->
+        <div id="footer" data-animate="fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        
+                        
+                        <hr>
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>GET IN TOUCH</h4>
+						
+                        <ul>
+                            <li><a href="#">Contact us</a>
+                            </li>
+							<li><a href="#">Support</a>
+                            </li>
+                            
+							<li><a href="#">Media</a>
+                            </li>
+							<li><a href="#">Jobs</a>
+                            </li>
+                        </ul>
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <h4>Where to find us</h4>
+                        <p><strong>2305 Bay Area Blvd,</strong>
+                        <br />
+                           <strong>Texas, 77058</strong>
+                            
+                            <br>
+                            <strong>USA</strong>
+                        </p>
+                        <hr class="hidden-md hidden-lg">
+                    </div>
+                    <!-- /.col-md-3 -->
+
+
+
+                    <div class="col-md-3 col-sm-6">
+                        <h4>Get the news</h4>
+                        <p class="text-muted"></p>
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+									<button class="btn btn-default" type="button">Subscribe!</button>
+								</span>
+                            </div>
+                            <!-- /input-group -->
+                        </form>
+                        <hr>
+                        <h4>Stay in touch</h4>
+                        <p class="social">
+                            <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                        </p>
+                    </div>
+                    <!-- /.col-md-3 -->
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2018 Otto Automation, All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">
+						<a target="_blank" href="#">Privacy Policy</a> |
+						<a target="_blank" href="#">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+    </div>
+ 
+    <script src="Functions/jquery-1.11.0.min.js"></script>
+    <script src="Functions/bootstrap.min.js"></script>
+    <script src="Functions/jquery.cookie.js"></script>
+    <script src="Functions/waypoints.min.js"></script>
+    <script src="Functions/modernizr.js"></script>
+    <script src="Functions/bootstrap-hover-dropdown.js"></script>
+    <script src="Functions/owl.carousel.min.js"></script>
+    <script src="Functions/front.js"></script>
+	<script src="Functions/roles.js"></script>
+    <script src="Functions/productItem.js"></script>
+	<script src="Functions/shoppingCart.js"></script>
+    <script src="Functions/jspdf.js"></script>
+	
+
+</body>
+
+</html>
